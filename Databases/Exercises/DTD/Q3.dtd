@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE Course_Catalog [
+<!ELEMENT Course_Catalog (Department*)>
+<!ELEMENT Department (Title, Course+, (Professor | Lecturer)+) >
+<!ATTLIST Department Code CDATA #REQUIRED
+                     Chair IDREF #REQUIRED>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Course (Title, Description?)>
+<!ATTLIST Course Number ID #REQUIRED
+                 Instructors IDREFS #REQUIRED
+                 Enrollment CDATA #IMPLIED
+                 Prerequisites IDREFS #IMPLIED>
+<!ELEMENT Description ( #PCDATA | Courseref)* >
+<!ELEMENT Courseref EMPTY>
+<!ATTLIST Courseref Number IDREF #REQUIRED>
+
+<!ELEMENT Instructors (Professor | Lecturer)+ >
+<!ELEMENT Professor (First_Name, Middle_Initial*, Last_Name)>
+<!ATTLIST Professor InstrID ID #REQUIRED>
+<!ELEMENT First_Name (#PCDATA)>
+<!ELEMENT Middle_Initial (#PCDATA)>
+<!ELEMENT Last_Name (#PCDATA)>
+<!ELEMENT Lecturer (First_Name, Middle_Initial*, Last_Name)>
+<!ATTLIST Lecturer InstrID ID #REQUIRED>
+]>
+
+
+
+<Course_Catalog>
+
+  <Department Code="CS">
+    
+    <Title>Computer Science</Title>
+    
+    <Chair>
+      <Professor>
+        <First_Name>Jennifer</First_Name>
+        <Last_Name>Widom</Last_Name>
+      </Professor>
+    </Chair>
+
+    <Course Number="CS106A" Enrollment="1070">
+      <Title>Programming Methodology</Title>
+      <Description>Introduction to the engineering of computer applications emphasizing modern software engineering principles.</Description>
+      <Instructors>
+        <Lecturer>
+          <First_Name>Jerry</First_Name>
+          <Middle_Initial>R.</Middle_Initial>
+          <Last_Name>Cain</Last_Name>
+        </Lecturer>
+        <Professor>
+          <First_Name>Eric</First_Name>
+          <Last_Name>Roberts</Last_Name>
+        </Professor>
+        <Professor>
+          <First_Name>Mehran</First_Name>
+          <Last_Name>Sahami</Last_Name>
+        </Professor>
+      </Instructors>
+    </Course>
+        
+  </Department>
+  
+</Course_Catalog>

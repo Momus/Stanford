@@ -1,0 +1,77 @@
+* Introduction
+ 
+** 01 Intro to Class
+
+*** How networks are designed and how they work is the moral
+- Everything we see will be on line with us every day.
+- If we are good we get a certificate.  But NO STFRRD CREDIT!!!!!
+
+
+** 02 Why you should care about the Internet - Why this course?
+
+*** Most important invention... arguably.
+
++ Second (or third) Industrial Revolution
++ 1/4 of CS jobs have to do with computer networks
+
+*** This Course:
+
+- How networks work: principles, design, and implemination
+- Use principles to understand Internet, apply to build better 'net in future
+- Forces that Shape The Inrawebs.
+
+
+
+* 03 [[file:pdfs/03_4_layer_model.pdf][The Four Layer Model]]
+ 
+** Networks are arranged in layers
+- Each layer of the network provides a well defined service to the
+  layer above.
+- Break down the process of communication into a useful set of
+  services that can easily be re-used by other applications. e.g:
+  + Application: e.g., web client et.c ; calls through an interface:
+  + Transport Layer
+    - Ensures that the bites that the Application wants to deliver to
+      the network correctly
+    - Any ones missing are re-transmitted
+    - And they are delivered
+
+** Example HTTP: Web Server 
+- Application :: GET file
+- Transport :: TCP takes "GET FILE" command, sends them to other end
+- Network :: IP: the "thin waist of the Internet.  Assembles the bites
+            into data-grams.  These are the bytes sent down form the
+             transform layer. Adds IP address to hop
+- Link :: Ethernet: sends frames containing Ethernet address into
+          network
+** Peer Layers Communicate
+   :Application: ---- GET file et c.
+   :Transport: to peer et c.
+   :Link: physical links between machines.
+
+** Encapsulation
+- Data encapsulated in TCP header, encapsulated in IP data-gram, in an
+  Ethernet header, the Ethernet
+- The Ethernet address is the link: the next hop.  The IP address will
+  be that of the eventual destination, which is looked up hop by hop to
+  get sent on its way.
+
+** Network could be more complex:
+
+-Ethernet switches: look only at Ethernet address.  IP essentially invisible.
+
+** Recap
+   :Application: Talks to its peer, sends commands to its peer. 
+   :Transport: Makes sure bytes get sent correctly in sequence, and it will re-transmit anything  that will get lost along the way.
+   :Network: Encapsulates Transport data into IP datagrams and sends it along the network path
+   :Link: Packets go link-by-link encapsulated by Ethernet frames
+   
+** Where do these layers run?
+   :Application: As a user process in user space. The Socket API used by the application process to call upon the network stack that is running inside the OS
+   :Transport: Operates inside the operating system.
+   :Network: Called "Layer 3" 'cause of the seven layer model.   
+
+
+   
+
+
