@@ -1,0 +1,46 @@
+
+* Introduction and Relational Databases
+
+*** Introduction
+
+***** Definition
+      A database system (DBS) provides storage of and access to data
+      that is:
+      - massive :: "terabytes of data a day" amount of data is growing
+                   faster than amount of memory.
+      - persistent :: outlives the process that executes on that data,
+                      as opposed to data that is created and destroyed
+                      during a single program's execution.
+      - safe :: guarantees that data will stay in a _consistent state_.
+      - multi-user :: multiple users or processes can access the data,
+                      and it maintains its consistent state.  This is
+                      handled by _concurrency control_.
+      - convenient :: happens at two levels:
+        - physical data independence :: the way data is stored on the
+             disk is independent of the operations on that data.
+        - high level query languages :: are _declarative_, i.e., they
+             describe the data that needs to be accessed, but don't need
+             to describe the algorithm for accessing the data.
+      - efficient :: "The three most important words things in a DBMS
+                     are, performance, performance, and performance."
+                     This is the domain of the database administrator.
+      - reliable :: modern DBMS's have a 99.99999% up time guarantee.
+
+***** Key Concepts Covered
+      - data model :: general description of how data is
+                      structured. Examples are:
+        - Relational Data Model :: data is considered as a set of records
+        - XML model :: data is a streaming XML document
+        - Graph Model :: all data is in the form of nodes and edges.
+      - schema vs data :: analogous to types vs variables in a
+                          program. The structure of a particular
+                          database, created by a Database Designer.
+      - data definition language :: used to describe and create the
+           schema for database.
+      - data manipulation language :: for operating on or modifying
+           the data within a schema.
+
+
+*** The Relation Model
+
+*** Querying Relational Databases

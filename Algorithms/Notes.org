@@ -1,4 +1,26 @@
+;; -*- mode: Org; auto-fill-mode: 1; -*-
+
 * Introduction
 *** Integer Multiplication
+    An example of a basic pattern in this course:
+    - Define an input :: Two (possibly very large) n-digit numbers.
+    - Define a desired output :: their product, x * y
+    - Describe algorithm to transform input into output :: this will
+         be assessed by the number of *basic operations* that it
+         performs.
+    - Basic operation :: in this case, multiplication or addition of 2
+         single digit numbers.
+    - Correctness :: Algorithm is _correct_ because if the basic
+                     operations are carried out without error, the
+                     algorithm will always return the correct answer.
+    - Informal Analysis :: figuring out the number of basic operations
+         required.
+      - first row :: n-multiplications with a max of (n - 1)
+                     additions ("carries") computes the partial product.
+      - all partial products :: first row multiplied by n, thus, 2n^2, plus the
+           addition of the partial sums at the end, which also equals
+           approximately 2n^2 steps, so about 4n^2 operations all
+           together.
+    The question is, can we do better?
     
 *** Karatsuba Multiplication
