@@ -1,7 +1,7 @@
 ;; -*- mode: Org; auto-fill-mode: 1; -*-
 
 * Introduction
-*** Integer Multiplication
+** Integer Multiplication
     An example of a basic pattern in this course:
     - Define an input :: Two (possibly very large) n-digit numbers.
     - Define a desired output :: their product, x * y
@@ -15,12 +15,48 @@
                      algorithm will always return the correct answer.
     - Informal Analysis :: figuring out the number of basic operations
          required.
-      - first row :: n-multiplications with a max of (n - 1)
+      - first row :: n-multiplications with a max of $(n - 1)$
                      additions ("carries") computes the partial product.
       - all partial products :: first row multiplied by n, thus, 2n^2, plus the
            addition of the partial sums at the end, which also equals
-           approximately 2n^2 steps, so about 4n^2 operations all
+           approximately $2n^2$ steps, so about $4n^2$ operations all
            together.
     The question is, can we do better?
     
 *** Karatsuba Multiplication
+***** Example
+      $5678 * 1234$ we find four quantities, $a, b, c, d$ where $a$ is
+      equal to the first half of the digits, (56) $b$ the second half
+      (78), $c$ the first half of the digits of the second number (12)
+      and $d$ the last half of the second number (34).
+      1. $a * c = 56 * 12 = 672$
+      2. $b * d = 2652$
+      3. $(a + b)(c + d) = 6164$
+      4. (Step 3) - (Step 2) - (Step 1) = 2840
+      5. Do some padding:
+         | pad (1) with 4 zeros  | 6720000 |
+         | pad (2) with no zeros |    2652 |
+         | pad (4) with 2 zeros  |  284000 |
+         |-----------------------+---------|
+         | add all together      | 7006652 |
+
+***** A recursive algorithm.
+      Write the two numbers being multiplied as sums:
+      - $x = 10^{n/2}a + b$
+      - $y = 10^{n/2}c + d$
+      where $a, b, c, d$ are $\frac{n}{2}$ digit numbers.
+      Then
+      $x * y = (10^{n/2}a + b) * (10^{n/2}c + d)$
+      or "Expression *"
+      $x * y = 10^{n}ac + 10{n/2}(ad + bc) + bd$
+      So we have four quantities for regression calls: $ac, ad, bc,
+      bd$ or do we? We can use Gauss's trick to compute $(ad + bc)$ in
+      one call: 
+      Algorithm Steps:
+      1. recursively compute $a * c$
+      2. recursively compute $b * d$
+      3. recursively compute $(a + b)(c + d) = ac + ab + bc + bd$
+      Gauss' trick (3) - (1) - (2) = $ad + bc$
+      So three recursive calls are necessary to compute a product with
+      this algorithm.
+      
