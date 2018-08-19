@@ -1,4 +1,5 @@
 ;; -*- mode: Org; auto-fill-mode: 1; -*-
+#+HEADER: :exports both :results output
 
 * Introduction
 ** Integer Multiplication
@@ -59,4 +60,37 @@
       Gauss' trick (3) - (1) - (2) = $ad + bc$
       So three recursive calls are necessary to compute a product with
       this algorithm.
-      
+*** Merge Sort Motivation and Example
+***** Why Study Merge Sort
+      - Sixty years old and still in use
+      - Most transparent example the "Divide and Conquer" algorithm paradigm
+      - Improves over Selection, Insertion and Bubble sort.
+      - Calibrates preparation.
+      - Motivates guiding principles for algorithm analysis
+      - Analysis generalizes to "Master Method"
+***** Sorting Problem
+      - Input :: Array of n numbers, unsorted
+      - Output :: Same numbers sorted in increasing order
+      - Assumptions :: Only unique values in array, even number of elements.
+******* Pseudo Code
+        Two recursive calls, and then a megring step.
+        #+BEGIN_EXAMPLE
+          for k = 1 to n
+              if A(i) < B(j)
+                 C(k) = A(i)
+                 i++
+              else [B(j) < A(i)]
+                 C(k) = B(j)
+                 j++
+          end
+        #+END_EXAMPLE
+        - C :: output [length = n]
+        - A :: 1st sorted array [n/2]
+        - B :: 2nd sorted array [n/2]
+        - i, j, k :: indices, start at first element
+******* Merger Sort Running Time
+         - Final merge step
+           $$4 * N + 2 or 5N + 2$$, or $$\leqslant 6$$
+        
+***** 
+        

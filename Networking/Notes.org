@@ -3,24 +3,22 @@
 ** 01 Intro to Class
 
 *** How networks are designed and how they work is the moral
-- Everything we see will be on line with us every day.
-- If we are good we get a certificate.  But NO STFRRD CREDIT!!!!!
+    - Everything we see will be on line with us every day.
+    - If we are good we get a certificate.  But NO STFRRD CREDIT!!!!!
 
-
+      
 ** 02 Why you should care about the Internet - Why this course?
 
 *** Most important invention... arguably.
 
-+ Second (or third) Industrial Revolution
-+ 1/4 of CS jobs have to do with computer networks
+     + Second (or third) Industrial Revolution
+     + 1/4 of CS jobs have to do with computer networks
 
 *** This Course:
 
-- How networks work: principles, design, and implemination
-- Use principles to understand Internet, apply to build better 'net in future
-- Forces that Shape The Inrawebs.
-
-
+     - How networks work: principles, design, and implemination
+     - Use principles to understand Internet, apply to build better 'net in future
+     - Forces that Shape The Inrawebs.
 
 * 03 [[file:pdfs/03_4_layer_model.pdf][The Four Layer Model]]
  

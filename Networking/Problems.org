@@ -1,0 +1,10 @@
+* Unit 1: The Internet and IP 
+*** 1-1: A day in the life of an application > Completion
+***** QuizProblem 1-1A
+      100,000 players, each at 1M/s get a 1Gig update
+      - Engeneer 1 :: says "let each download it from server: 100
+                      rounds of 1000 players taking 1000 seconds each
+                      round = (* 100 1000) or 100,000 seconds
+      - Engeneer 2 :: players who have downloaded the patch allow
+                      other players to download it from them.
+
