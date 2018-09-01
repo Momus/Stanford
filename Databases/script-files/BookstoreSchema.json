@@ -28,5 +28,5 @@
               "Title": { "type":"string" },
               "Month": { "type":"string",
                          "enum":["January","February"] },
-              "Year": { "type":"integer" }}}}
+             "Year": { "type":["integer", "string"] }}}}
 }}
