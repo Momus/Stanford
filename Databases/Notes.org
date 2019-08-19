@@ -1,3 +1,5 @@
+# -*- mode: Org; eval: (auto-fill-mode 1) -*- #
+
 
 * Introduction and Relational Databases
 
@@ -41,6 +43,27 @@
            the data within a schema.
 
 
-*** The Relation Model
-
-*** Querying Relational Databases
+* [[https://lagunita.stanford.edu/courses/DB/RA/SelfPaced/course/][DB4]] Relational Algebra
+  - queries :: operate on relations, produce relations as a result
+  - examples :: simple college addmissions database: keys (attributes
+                guaranteed to be _unique_ are _underlined_
+    - college :: _cName_, state, enrollment
+    - Student :: _sID_, sName, GPA, sizeHS
+    - Apply :: _sID_, _cName_, _major_, decision
+*** Select, Project, Join
+    use operators to _filter_, _slice_, and _combine_ relatoins.
+***** Simplest query: relation name.
+      Run `Student` get a copy of the Stundent relation.
+***** SELECT: pick certain rows
+      - notation: $\sigma_{condition}$
+      - examples:
+        - Student with GPA < 3.7 :: $\sigma_{GPA\ >\ 3.7}\ Student$
+        - AND HS <1000 :: $\sigma_{GPA>3.7 \land\ HS<1000}\ Student$
+        - Applicants to CS major :: e$\sigma_{cName='Stanford' \land\ major='cs'}\ Apply$
+***** PROJECT: pick certain columns
+      - notation :: $\pi_{list\ of\ attributes}\ Relation\ Name$
+      - examples:
+        - ID and decision of all applicants :: $\pi_{sID,\ decision}\ Apply$
+        - ID & name of students with GPA<3.7 :: $\pi_{sID,\
+             sName}(\sigma_{GPA<3.7}\ Student)$
+***** 
