@@ -1,4 +1,7 @@
 # -*- mode: Org; eval: (auto-fill-mode 1) -*- #
+Execute the line below each time or figure out [[https://emacs.stackexchange.com/questions/19880/font-size-control-of-latex-previews-in-org-files][how it works]]
+(setq org-format-latex-options (plist-put org-format-latex-options
+                                          :scale 1.75))
 
 
 * Introduction and Relational Databases
@@ -82,11 +85,30 @@
       - result has eight attributes, which has  S * A tupples.
 *******  Cross Product with other operators.
         - example :: Names and GPSs of students with HS>1000 who
-                     applied to CS and were rejected.
-          - $\pi_{sName, GPA}(\sigma_{Student.sID\ =\
-            Apply.sID\hspace{5 pt} \land \hspace{5 pt} HS>1000\
-            \hspace{5 pt} \land\hspace{5 pt} major\ =\ 'CS'\ \hspace{5
-            pt} \land\ \hspace{5 pt} dec\ =\ 'R'} (Student\ \times\
-            Apply))$
+                     applied to CS and were rejected:
+$\pi_{sName, GPA}(\sigma_{Student.sID\ = Apply.sID \hspace{2 pt} \land
+        \hspace{2 pt} HS>1000 \hspace{2 pt} \land \hspace{2 pt} major\
+        =\ 'CS' \hspace{2 pt} \land \hspace{2 pt} dec\ =\ 'R'}
+        (Student\ \times\ Apply))$
           - 
-***** 
+***** Natural Join
+      - enforce equality on all attributes with the same name
+      - eliminate one copy of duplicate attributes
+******* Notation: $\bowtie$
+******* Examples
+        - Name & GPA :: of students with HS >1000 who applied to CS and
+          were rejected:
+          $\pi_{sName, gpa}}(\sigma_{hs>1000\ \land\ major=`CS' \land\ dec=`R'} (Student\ \bowtie\ Apply$))
+        - Names & GPA :: students with HS>1000 who applied to CS at
+                         college with enr>20,000 and were rejected:
+        $\pi_{sName,GPA}(\sigma_{HS>1k \land major=``CS" \land dec=``R"}(Studnet \bowtie (Apply \bowtie College)))$
+******* Summary:
+        Natural Join can be rewritten using plain join:
+$E_{1} \bowtie E_{2} \equiv \pi_{schema(E_{1})\bigcup
+schema(E_{2})}(\sigma_{E_{1}\cdot A_{1}=E_{2}\cdot A_{1}\land
+E_{1}\cdot A_{2}=E_{2}\cdot A_{2} ...} (E_{1}\times E_{2}))$
+
+***** Theta Join  $\bowtie_{\theta}$
+      $Exp_{1} \bowtie_{\theta} Exp_{2}\ \equiv\ \sigma_{\theta}(Exp_{1}
+      \times Exp_{2})$
+******* Most DBMS use theta join when combining relations.
