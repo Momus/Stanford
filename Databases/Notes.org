@@ -66,4 +66,27 @@
         - ID and decision of all applicants :: $\pi_{sID,\ decision}\ Apply$
         - ID & name of students with GPA<3.7 :: $\pi_{sID,\
              sName}(\sigma_{GPA<3.7}\ Student)$
+***** Duplicates
+******* List of majors and decisons
+        $\pi_{major,\ dec\ }\ Apply$ 
+        - you would expect to have lots of duplicates
+        - In SQL, that's OK, in RA, duplicates are always ommitted.
+          - SQL is based on "multisets" or "bags"
+***** Cross (Cartesian) Profuct: combine two relatins
+      takes two relations and joinst them so the scema of the reult is
+      the union of the schema of the two relations and contents are
+      every combination of tuples of that relation.
+      - Student X Apply :: when there are two columns with the same
+           name th reusltant relation has columns for both preficed by
+           the original table name:  Student.sID Apply.sID
+      - result has eight attributes, which has  S * A tupples.
+*******  Cross Product with other operators.
+        - example :: Names and GPSs of students with HS>1000 who
+                     applied to CS and were rejected.
+          - $\pi_{sName, GPA}(\sigma_{Student.sID\ =\
+            Apply.sID\hspace{5 pt} \land \hspace{5 pt} HS>1000\
+            \hspace{5 pt} \land\hspace{5 pt} major\ =\ 'CS'\ \hspace{5
+            pt} \land\ \hspace{5 pt} dec\ =\ 'R'} (Student\ \times\
+            Apply))$
+          - 
 ***** 
